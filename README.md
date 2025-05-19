@@ -1,52 +1,118 @@
-# Synapse AI- Instant Connections. Infinite Possibilites.
+# Synapse-Pi — Your Lightweight AI Terminal on Raspberry Pi
 
-**Synapse AI** is a lightweight, Python-based personal assistant designed to run locally on a Raspberry Pi. It leverages powerful LLMs (such as Meta Llama API or OpenAI) to provide natural language responses and assist with everyday tasks — all without needing a browser or external UI. Once installed, it can autostart and run on boot, serving as a desktop AI companion.
+**Synapse-Pi** is a lightweight, Python-based AI assistant designed specifically for Raspberry Pi devices. It runs directly from your terminal, bootstraps on startup, and leverages powerful LLMs (like OpenAI or Meta’s LLaMA) for local assistant-style interactions — without the need for a browser or UI.
+
+Whether you're using it as a personal command-line assistant, an automation engine, or an educational project, Synapse-Pi is a modular, expandable foundation for AI on the edge.
+
+---
 
 ## Features
 
-* Runs automatically on Raspberry Pi at startup (autostart compatible)
-* Lightweight and efficient, optimized for local terminal use
-* Powered by OpenAI and/or Meta Llama API (fully customizable backend)
-* Modular and easy to expand for voice, GUI, or smart home features
-* Supports simple automation, task management, and local offline use (aside from AI queries)
-* Ideal as a personal AI assistant, home server interface, or educational project
+* Autostarts on boot (via PM2 or crontab)
+* Fully terminal-based, no GUI required
+* Lightweight and resource-conscious
+* Integrates OpenAI or LLaMA via API for responses
+* Includes encrypted memory, local logs, and task tools
+* Modular file structure (UI, utils, background processes, secrets, config)
+
+---
 
 ## Use Cases
 
-* Personal AI assistant for daily tasks and Q\&A
-* Simple automation and command-line interaction
-* Expandable foundation for home automation or voice assistants
-* Educational platform for learning Python and AI integration on Raspberry Pi
+* Terminal-based AI assistant for Raspberry Pi
+* Voice-controlled interface (expandable via mic)
+* Educational AI + Python project
+* Smart home controller or interface
+* Local server command execution via AI
+
+---
 
 ## Getting Started
 
-### 1. Clone the repository
+### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/synapse-ai.git
-cd synapse-ai
+git clone https://github.com/richlil1/synapse-pi.git
+cd synapse-pi
 ```
 
-### 2. Install dependencies
+### 2. Install Python Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3. Run Synapse AI
+### 3. Create Your `.env` File
+
+Create a `.env` file in the root directory:
+
+```bash
+touch .env
+```
+
+Paste this inside:
+
+```
+OPENAI_API_KEY=your-openai-api-key
+```
+
+---
+
+### 4. Run the App
 
 ```bash
 python synapse.py
 ```
 
+Or to make it autostart on boot (recommended for Raspberry Pi):
+
+```bash
+pm2 start synapse.py --name synapse-pi
+pm2 save
+pm2 startup
+```
+
+---
+
+## Directory Structure
+
+```
+synapse-pi/
+│
+├── assets/                  # Images and visual assets
+├── background_processes.py  # Optional modules (e.g. metrics, uptime)
+├── config.json              # Runtime config
+├── key.key                  # Encryption key (generated automatically)
+├── leaderboard.json         # Usage tracking / gamified metrics
+├── synapse.py               # Main entry script
+├── ui.py                    # Terminal interface logic
+├── utils.py                 # Helper functions and logic
+├── .env                     # Your API keys
+├── requirements.txt         # Python dependencies
+└── README.md
+```
+
+---
+
 ## Future Plans
 
-* Add optional GUI for desktop use
-* Allow switching between AI models
-* Support local offline models
-* Integrate personal notes and memory features
+* Voice command integration
+* Local model fallback (offline AI)
+* GUI interface with touch/mouse support
+* Smart home bridge modules (e.g., Home Assistant)
+* SynapseT2: A Codex-style terminal-only CLI assistant
+
+---
 
 ## License
 
-This project is currently private and under active development.
+This project is open source under the MIT License.
+See the [LICENSE](./LICENSE) file for full terms.
 
+---
+
+## Contributing
+
+Pull requests and forks are welcome. If you'd like to suggest features or contribute, open an issue or create a branch.
+
+To contribute formally, please read the [CONTRIBUTING.md](./CONTRIBUTING.md) file (if available).
