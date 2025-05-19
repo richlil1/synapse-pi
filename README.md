@@ -8,7 +8,6 @@ Whether you're using it as a personal command-line assistant, an automation engi
 
 ## Features
 
-* Autostarts on boot (via PM2 or crontab)
 * Fully terminal-based, no GUI required
 * Lightweight and resource-conscious
 * Integrates OpenAI or LLaMA via API for responses
@@ -20,7 +19,6 @@ Whether you're using it as a personal command-line assistant, an automation engi
 ## Use Cases
 
 * Terminal-based AI assistant for Raspberry Pi
-* Voice-controlled interface (expandable via mic)
 * Educational AI + Python project
 * Smart home controller or interface
 * Local server command execution via AI
@@ -64,14 +62,6 @@ OPENAI_API_KEY=your-openai-api-key
 python synapse.py
 ```
 
-Or to make it autostart on boot (recommended for Raspberry Pi):
-
-```bash
-pm2 start synapse.py --name synapse-pi
-pm2 save
-pm2 startup
-```
-
 ---
 
 ## Directory Structure
@@ -99,8 +89,6 @@ synapse-pi/
 * Voice command integration
 * Local model fallback (offline AI)
 * GUI interface with touch/mouse support
-* Smart home bridge modules (e.g., Home Assistant)
-* SynapseT2: A Codex-style terminal-only CLI assistant
 
 ---
 
